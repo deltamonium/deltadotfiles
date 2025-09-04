@@ -12,7 +12,7 @@ echo -e "${GREEN}🚀 Deploying Delta Dotfiles...${NC}"
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Create directories if they don't exist
-mkdir -p ~/.config/i3 ~/.config/polybar ~/.config/rofi ~/.config/alacritty
+mkdir -p ~/.config/i3 ~/.config/polybar ~/.config/rofi ~/.config/kitty ~/.config/dunst ~/.config/picom
 
 # Deploy i3 config
 echo -e "${YELLOW}📁 Installing i3 config...${NC}"
@@ -37,6 +37,15 @@ echo -e "${YELLOW}📁 Installing system configs...${NC}"
 [ -f "$SCRIPT_DIR/system/.xinitrc" ] && cp "$SCRIPT_DIR/system/.xinitrc" ~/
 [ -f "$SCRIPT_DIR/system/.bashrc" ] && cp "$SCRIPT_DIR/system/.bashrc" ~/
 [ -f "$SCRIPT_DIR/system/.zshrc" ] && cp "$SCRIPT_DIR/system/.zshrc" ~/
+
+echo -e "${YELLOW}📁 Installing kitty config...${NC}"
+cp -r "$SCRIPT_DIR/kitty/"* ~/.config/kitty/ 2>/dev/null || true
+
+echo -e "${YELLOW}📁 Installing dunst config...${NC}"
+cp -r "$SCRIPT_DIR/dunst/"* ~/.config/dunst/ 2>/dev/null || true
+
+echo -e "${YELLOW}📁 Installing picom config...${NC}"
+cp -r "$SCRIPT_DIR/picom/"* ~/.config/picom/ 2>/dev/null || true
 
 # Apply Xresources
 if [ -f ~/.Xresources ]; then
