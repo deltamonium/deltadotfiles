@@ -1,0 +1,6 @@
+- 🪟 i3wm - window manager
+- 📊 Polybar - status bar  
+- 🚀 Rofi - app launcher
+- 🐱 Kitty - terminal emulator
+- 🔔 Dunst - notifications
+- 🎨 Picom - compositor
